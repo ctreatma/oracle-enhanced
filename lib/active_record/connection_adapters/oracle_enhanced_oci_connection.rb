@@ -301,6 +301,7 @@ module ActiveRecord
         cursor_sharing = config[:cursor_sharing] || 'force'
         # get session time_zone from configuration or from TZ environment variable
         time_zone = config[:time_zone] || ENV['TZ']
+        schema = config[:schema]
 
         # connection using host, port and database name
         connection_string = if host || port
@@ -320,6 +321,7 @@ module ActiveRecord
         conn.prefetch_rows = prefetch_rows
         conn.exec "alter session set cursor_sharing = #{cursor_sharing}" rescue nil
         conn.exec "alter session set time_zone = '#{time_zone}'" unless time_zone.blank?
+        conn.exec "alter session set current_schema = #{schema}" unless schema.blank?
 
         # Initialize NLS parameters
         OracleEnhancedAdapter::DEFAULT_NLS_PARAMETERS.each do |key, default_value|
