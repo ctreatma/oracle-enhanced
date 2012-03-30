@@ -20,10 +20,14 @@ module ActiveRecord
 
       def to_sql_with_virtual_columns
         if type==:virtual
-          "#{base.quote_column_name(name)} AS (#{default})"
+          column_sql = "#{base.quote_column_name(name)} AS (#{default})"
         else
-          to_sql_without_virtual_columns
+          column_sql = to_sql_without_virtual_columns
+          if type==:primary_key
+            column_sql << base.table_definition_tablespace
+          end
         end
+        column_sql
       end
 
       def lob?
@@ -51,7 +55,7 @@ module ActiveRecord
     module OracleEnhancedTableDefinition
       class ForeignKey < Struct.new(:base, :to_table, :options) #:nodoc:
         def to_sql
-          base.foreign_key_definition(to_table, options)
+          base.foreign_key_definition(to_table, options) << base.table_definition_tablespace
         end
         alias to_s :to_sql
       end
