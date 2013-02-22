@@ -4,16 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{activerecord-oracle_enhanced-adapter}
-  s.version = "1.4.2.rc1"
+  s.name = "ctreatma-activerecord-oracle_enhanced-adapter"
+  s.version = "1.4.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Raimonds Simanovskis}]
-  s.date = %q{2012-11-13}
-  s.description = %q{Oracle "enhanced" ActiveRecord adapter contains useful additional methods for working with new and legacy Oracle databases.
-This adapter is superset of original ActiveRecord Oracle adapter.
-}
-  s.email = %q{raimonds.simanovskis@gmail.com}
+  s.authors = ["Charles Treatman", "Raimonds Simanovskis"]
+  s.date = "2012-03-28"
+  s.description = "Oracle \"enhanced\" ActiveRecord adapter contains useful additional methods for working with new and legacy Oracle databases.\nThis adapter is superset of original ActiveRecord Oracle adapter.\n"
+  s.email = "charles.treatman@gmail.com"
   s.extra_rdoc_files = [
     "README.md"
   ]
@@ -27,6 +25,7 @@ This adapter is superset of original ActiveRecord Oracle adapter.
     "Rakefile",
     "VERSION",
     "activerecord-oracle_enhanced-adapter.gemspec",
+    "ctreatma-activerecord-oracle_enhanced-adapter.gemspec",
     "lib/active_record/connection_adapters/emulation/oracle_adapter.rb",
     "lib/active_record/connection_adapters/oracle_enhanced.rake",
     "lib/active_record/connection_adapters/oracle_enhanced_activerecord_patches.rb",
@@ -64,10 +63,10 @@ This adapter is superset of original ActiveRecord Oracle adapter.
     "spec/active_record/connection_adapters/oracle_enhanced_structure_dump_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/rsim/oracle-enhanced}
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Oracle enhanced adapter for ActiveRecord}
+  s.homepage = "http://github.com/ctreatma/oracle-enhanced"
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.21"
+  s.summary = "Oracle enhanced adapter for ActiveRecord"
   s.test_files = [
     "spec/active_record/connection_adapters/oracle_enhanced_adapter_spec.rb",
     "spec/active_record/connection_adapters/oracle_enhanced_connection_spec.rb",
